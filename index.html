@@ -248,7 +248,7 @@
       </div>
 
       <!-- Mobile menu -->
-      <div class="md:hidden hidden bg-white shadow-lg" id="mobile-menu">
+      <div class="md:hidden hidden bg-white shadow-lg transition-all duration-300 ease-in-out" id="mobile-menu">
         <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
           <a
             href="#inicio"
@@ -945,5 +945,37 @@
         </div>
       </div>
     </footer>
+    
+    <script>
+      // Mobile menu toggle
+      document.addEventListener('DOMContentLoaded', function() {
+        const menuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        if (menuButton && mobileMenu) {
+          // Cerrar el menú al hacer clic en un enlace
+          const menuLinks = mobileMenu.querySelectorAll('a');
+          menuLinks.forEach(link => {
+            link.addEventListener('click', (e) => {
+              e.stopPropagation();
+              mobileMenu.classList.add('hidden');
+            });
+          });
+          
+          // Alternar menú al hacer clic en el botón
+          menuButton.addEventListener('click', function(e) {
+            e.stopPropagation();
+            mobileMenu.classList.toggle('hidden');
+          });
+          
+          // Cerrar el menú al hacer clic fuera de él
+          document.addEventListener('click', function(event) {
+            if (!menuButton.contains(event.target) && !mobileMenu.contains(event.target)) {
+              mobileMenu.classList.add('hidden');
+            }
+          });
+        }
+      });
+    </script>
   </body>
 </html>
