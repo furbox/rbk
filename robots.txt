@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+# Sitemap principal
+Sitemap: https://rbk.app.vibranio.com.mx/sitemap.xml
+
+# Para GitHub Pages
+Sitemap: https://furbox.github.io/rbk/sitemap.xml
